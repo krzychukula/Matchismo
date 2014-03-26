@@ -114,8 +114,6 @@
 		010683BF18E3116900E931E4 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
-				010683C818E3116900E931E4 /* CardGameAppDelegate.h */,
-				010683C918E3116900E931E4 /* CardGameAppDelegate.m */,
 				010683CB18E3116900E931E4 /* Main_iPhone.storyboard */,
 				010683CE18E3116900E931E4 /* Main_iPad.storyboard */,
 				010683D118E3116900E931E4 /* CardGameViewController.h */,
@@ -129,6 +127,8 @@
 		010683C018E3116900E931E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				010683C818E3116900E931E4 /* CardGameAppDelegate.h */,
+				010683C918E3116900E931E4 /* CardGameAppDelegate.m */,
 				010683C118E3116900E931E4 /* Matchismo-Info.plist */,
 				010683C218E3116900E931E4 /* InfoPlist.strings */,
 				010683C518E3116900E931E4 /* main.m */,
