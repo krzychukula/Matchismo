@@ -12,7 +12,7 @@
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
+@property (strong, nonatomic) Deck *playingCardDeck;
 @end
 
 @implementation CardGameViewController
@@ -30,11 +30,22 @@
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
     }else {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
-                          forState:UIControlStateNormal];
-        [sender setTitle:[[self.playingCardDeck drawRandomCard] contents]  forState:UIControlStateNormal];
+        Card *card = [self.playingCardDeck drawRandomCard];
+        if(card){
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
+                              forState:UIControlStateNormal];
+            [sender setTitle:[card contents]  forState:UIControlStateNormal];
+        }
+        
     }
     self.flipCount++;
+}
+
+- (Deck *)playingCardDeck {
+    if(!_playingCardDeck){
+        _playingCardDeck = [[PlayingCardDeck alloc] init];
+    }
+    return _playingCardDeck;
 }
 
 
@@ -42,7 +53,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.playingCardDeck = [[PlayingCardDeck alloc] init];
+    
+    //Wondering if it would be better still ;)
+    //http://stackoverflow.com/questions/772182/iphone-uiviewcontroller-init-method-not-being-called
+    //self.playingCardDeck = [[PlayingCardDeck alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
